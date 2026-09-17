@@ -1,9 +1,20 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { createPageUrl } from '@/utils';
 import { motion } from 'framer-motion';
-import { Home, Sparkles, Feather, Sunrise, Moon, MessageCircle } from 'lucide-react';
+import { Home, Sparkles, Feather, Sunrise, Moon, MessageCircle, UserCircle2, LogOut } from 'lucide-react';
 import { cn } from "@/lib/utils";
+import { useAuth } from '@/lib/AuthContext';
+import { supabase } from '@/lib/supabaseClient';
+import {
+  Dialog,
+  DialogContent,
+  DialogHeader,
+  DialogTitle,
+  DialogDescription,
+} from '@/components/ui/dialog';
+import { Button } from '@/components/ui/button';
+import { Input } from '@/components/ui/input';
 const navItems = [
   { name: 'Morning', icon: Sunrise, path: 'MorningPractice' },
   { name: 'Affirmations', icon: Sparkles, path: 'Affirmations' },
@@ -11,6 +22,104 @@ const navItems = [
   { name: 'Home', icon: Home, path: 'Home' },
   { name: 'Evening', icon: Moon, path: 'EveningPractice' },
 ];
+function AccountMenu() {
+  const { signOut } = useAuth();
+  const [open, setOpen] = useState(false);
+  const [menuOpen, setMenuOpen] = useState(false);
+  const [password, setPassword] = useState('');
+  const [confirmPassword, setConfirmPassword] = useState('');
+  const [error, setError] = useState('');
+  const [success, setSuccess] = useState(false);
+  const [loading, setLoading] = useState(false);
+
+  async function handleChangePassword(e) {
+    e.preventDefault();
+    setError('');
+    setSuccess(false);
+    if (password.length < 6) {
+      setError('Password must be at least 6 characters.');
+      return;
+    }
+    if (password !== confirmPassword) {
+      setError('Passwords do not match.');
+      return;
+    }
+    setLoading(true);
+    const { error } = await supabase.auth.updateUser({ password });
+    setLoading(false);
+    if (error) {
+      setError(error.message);
+    } else {
+      setSuccess(true);
+      setPassword('');
+      setConfirmPassword('');
+    }
+  }
+
+  return (
+    <div className="relative">
+      <button
+        onClick={() => setMenuOpen((v) => !v)}
+        className="p-2 rounded-lg text-gray-500 hover:text-gray-900 hover:bg-gray-50"
+        aria-label="Account"
+      >
+        <UserCircle2 className="w-5 h-5" />
+      </button>
+      {menuOpen && (
+        <div className="absolute right-0 mt-2 w-48 bg-white border border-gray-100 rounded-lg shadow-lg py-1 z-50">
+          <button
+            onClick={() => {
+              setMenuOpen(false);
+              setOpen(true);
+            }}
+            className="w-full text-left px-4 py-2 text-sm text-gray-700 hover:bg-gray-50"
+          >
+            Change password
+          </button>
+          <button
+            onClick={() => {
+              setMenuOpen(false);
+              signOut();
+            }}
+            className="w-full text-left px-4 py-2 text-sm text-gray-700 hover:bg-gray-50 flex items-center gap-2"
+          >
+            <LogOut className="w-4 h-4" /> Sign out
+          </button>
+        </div>
+      )}
+      <Dialog open={open} onOpenChange={setOpen}>
+        <DialogContent>
+          <DialogHeader>
+            <DialogTitle>Change password</DialogTitle>
+            <DialogDescription>Choose a new password for your account.</DialogDescription>
+          </DialogHeader>
+          <form onSubmit={handleChangePassword} className="space-y-3">
+            <Input
+              type="password"
+              placeholder="New password"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+              required
+            />
+            <Input
+              type="password"
+              placeholder="Confirm new password"
+              value={confirmPassword}
+              onChange={(e) => setConfirmPassword(e.target.value)}
+              required
+            />
+            {error && <p className="text-sm text-red-500">{error}</p>}
+            {success && <p className="text-sm text-green-600">Password updated.</p>}
+            <Button type="submit" disabled={loading} className="w-full">
+              {loading ? 'Updating...' : 'Update password'}
+            </Button>
+          </form>
+        </DialogContent>
+      </Dialog>
+    </div>
+  );
+}
+
 export default function Layout({ children }) {
   const location = useLocation();
   const currentPath = location.pathname.split('/').pop() || 'Home';
@@ -46,9 +155,14 @@ export default function Layout({ children }) {
                 );
               })}
             </nav>
+            <AccountMenu />
           </div>
         </div>
       </header>
+      {/* Mobile Account Button */}
+      <div className="md:hidden fixed top-3 right-3 z-50">
+        <AccountMenu />
+      </div>
       {/* Main Content */}
       <main className="md:pt-20 pb-24 md:pb-8">
         {children}

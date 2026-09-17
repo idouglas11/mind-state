@@ -39,8 +39,7 @@ export default function Focus() {
           animate={{ opacity: 1, y: 0 }}
           className="text-center mb-10"
         >
-          <div className="inline-flex items-center justify-center w-14 h-14 bg-blue-100 rounded-2xl mb-
-4">
+          <div className="inline-flex items-center justify-center w-14 h-14 bg-blue-100 rounded-2xl mb-4">
             <Target className="w-7 h-7 text-blue-500" />
           </div>
           <h1 className="text-3xl md:text-4xl font-light text-gray-800 mb-2">Focus</h1>
@@ -54,53 +53,45 @@ export default function Focus() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: index * 0.05 }}
-              className="bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden flex flex-
-col"
+              className="bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden flex flex-col"
             >
               <div className="px-4 pt-4 pb-2 border-b border-gray-50">
-                <span className="text-xs font-semibold uppercase tracking-widest text-gray-300">#{index +
-1}</span>
+                <span className="text-xs font-semibold uppercase tracking-widest text-gray-300">#{index + 1}</span>
               </div>
               {/* The Thought */}
               <div className="p-4 border-b border-gray-100">
-                <label className="block text-xs font-semibold uppercase tracking-widest text-gray-400 mb-
-2">
+                <label className="block text-xs font-semibold uppercase tracking-widest text-gray-400 mb-2">
                   The Thought
                 </label>
                 <Textarea
                   value={col.originalThought}
                   onChange={(e) => updateColumn(index, 'originalThought', e.target.value)}
                   placeholder="Write your thought here..."
-                  className="min-h-[90px] border-0 bg-gray-50 focus-visible:ring-1 resize-none text-gray-
-700 placeholder:text-gray-400 rounded-xl text-sm"
+                  className="min-h-[90px] border-0 bg-gray-50 focus-visible:ring-1 resize-none text-gray-700 placeholder:text-gray-400 rounded-xl text-sm"
                 />
               </div>
               {/* New Perspective */}
               <div className="p-4 border-b border-gray-100">
-                <label className="block text-xs font-semibold uppercase tracking-widest text-gray-400 mb-
-2">
+                <label className="block text-xs font-semibold uppercase tracking-widest text-gray-400 mb-2">
                   New Perspective
                 </label>
                 <Textarea
                   value={col.reframedThought}
                   onChange={(e) => updateColumn(index, 'reframedThought', e.target.value)}
                   placeholder="Write your new perspective..."
-                  className="min-h-[90px] border-0 bg-gray-50 focus-visible:ring-1 resize-none text-gray-
-700 placeholder:text-gray-400 rounded-xl text-sm"
+                  className="min-h-[90px] border-0 bg-gray-50 focus-visible:ring-1 resize-none text-gray-700 placeholder:text-gray-400 rounded-xl text-sm"
                 />
               </div>
               {/* Now I Will */}
               <div className="p-4 flex-1">
-                <label className="block text-xs font-semibold uppercase tracking-widest text-gray-400 mb-
-2">
+                <label className="block text-xs font-semibold uppercase tracking-widest text-gray-400 mb-2">
                   Now I Will
                 </label>
                 <Textarea
                   value={col.nowIWill}
                   onChange={(e) => updateColumn(index, 'nowIWill', e.target.value)}
                   placeholder="What will you do with this?..."
-                  className="min-h-[90px] border-0 bg-gray-50 focus-visible:ring-1 resize-none text-gray-
-700 placeholder:text-gray-400 rounded-xl text-sm"
+                  className="min-h-[90px] border-0 bg-gray-50 focus-visible:ring-1 resize-none text-gray-700 placeholder:text-gray-400 rounded-xl text-sm"
                 />
               </div>
               {/* Actions */}

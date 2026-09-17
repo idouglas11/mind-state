@@ -80,16 +80,14 @@ export default function JournalEntry() {
   };
   if (isLoading) {
     return (
-      <div className="min-h-screen bg-gradient-to-b from-stone-50 via-white to-purple-50/30 flex items-ce
-nter justify-center">
+      <div className="min-h-screen bg-gradient-to-b from-stone-50 via-white to-purple-50/30 flex items-center justify-center">
         <Loader2 className="w-8 h-8 animate-spin text-purple-500" />
       </div>
     );
   }
   if (!entry) {
     return (
-      <div className="min-h-screen bg-gradient-to-b from-stone-50 via-white to-purple-50/30 flex items-ce
-nter justify-center">
+      <div className="min-h-screen bg-gradient-to-b from-stone-50 via-white to-purple-50/30 flex items-center justify-center">
         <div className="text-center">
           <p className="text-gray-500 mb-4">Entry not found</p>
           <Link to={createPageUrl('Journal')}>
@@ -190,8 +188,7 @@ nter justify-center">
               <Button
                 onClick={handleSave}
                 disabled={updateEntry.isPending}
-                className="flex-1 py-6 bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700
-hover:to-pink-700 text-white rounded-2xl"
+                className="flex-1 py-6 bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 text-white rounded-2xl"
               >
                 {updateEntry.isPending ? (
                   <Loader2 className="w-5 h-5 animate-spin" />
@@ -239,8 +236,7 @@ hover:to-pink-700 text-white rounded-2xl"
             </div>
             {/* Gratitude */}
             {entry.gratitude?.length > 0 && (
-              <div className="bg-gradient-to-r from-rose-50 to-pink-50 rounded-2xl border border-rose-100
-p-6">
+              <div className="bg-gradient-to-r from-rose-50 to-pink-50 rounded-2xl border border-rose-100 p-6">
                 <div className="flex items-center gap-2 mb-4">
                   <Heart className="w-5 h-5 text-rose-400" />
                   <h3 className="font-medium text-gray-700">Gratitude</h3>
@@ -249,8 +245,7 @@ p-6">
                   {entry.gratitude.map((item, index) => (
                     <span
                       key={index}
-                      className="px-4 py-2 bg-white rounded-full text-sm text-rose-700 border border-rose
--200"
+                      className="px-4 py-2 bg-white rounded-full text-sm text-rose-700 border border-rose-200"
                     >
                       {item}
                     </span>

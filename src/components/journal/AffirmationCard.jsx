@@ -36,16 +36,13 @@ export default function AffirmationCard({ customAffirmations = [], onFavorite })
     <motion.div
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
-      className="relative overflow-hidden rounded-3xl bg-gradient-to-br from-violet-50 via-purple-50 to-f
-uchsia-50 p-8 md:p-12 border border-purple-100/50 shadow-xl shadow-purple-100/20"
+      className="relative overflow-hidden rounded-3xl bg-gradient-to-br from-violet-50 via-purple-50 to-fuchsia-50 p-8 md:p-12 border border-purple-100/50 shadow-xl shadow-purple-100/20"
     >
       <div className="absolute top-4 right-4">
         <Sparkles className="w-6 h-6 text-purple-300" />
       </div>
-      <div className="absolute -bottom-20 -left-20 w-40 h-40 bg-gradient-to-br from-purple-200/30 to-pink
--200/30 rounded-full blur-3xl" />
-      <div className="absolute -top-10 -right-10 w-32 h-32 bg-gradient-to-br from-violet-200/30 to-indigo
--200/30 rounded-full blur-3xl" />
+      <div className="absolute -bottom-20 -left-20 w-40 h-40 bg-gradient-to-br from-purple-200/30 to-pink-200/30 rounded-full blur-3xl" />
+      <div className="absolute -top-10 -right-10 w-32 h-32 bg-gradient-to-br from-violet-200/30 to-indigo-200/30 rounded-full blur-3xl" />
       <p className="text-xs uppercase tracking-[0.2em] text-purple-400 mb-6 font-medium">
         Today's Affirmation
       </p>

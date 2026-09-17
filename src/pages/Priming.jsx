@@ -39,8 +39,7 @@ export default function Priming() {
           animate={{ opacity: 1, y: 0 }}
           className="text-center mb-10"
         >
-          <div className="inline-flex items-center justify-center w-14 h-14 bg-yellow-100 rounded-2xl mb-
-4">
+          <div className="inline-flex items-center justify-center w-14 h-14 bg-yellow-100 rounded-2xl mb-4">
             <Zap className="w-7 h-7 text-yellow-500" />
           </div>
           <h1 className="text-3xl md:text-4xl font-light text-gray-800 mb-2">Priming</h1>
@@ -54,53 +53,45 @@ export default function Priming() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: index * 0.05 }}
-              className="bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden flex flex-
-col"
+              className="bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden flex flex-col"
             >
               <div className="px-4 pt-4 pb-2 border-b border-gray-50">
-                <span className="text-xs font-semibold uppercase tracking-widest text-gray-300">#{index +
-1}</span>
+                <span className="text-xs font-semibold uppercase tracking-widest text-gray-300">#{index + 1}</span>
               </div>
               {/* The Situation */}
               <div className="p-4 border-b border-gray-100">
-                <label className="block text-xs font-semibold uppercase tracking-widest text-gray-400 mb-
-2">
+                <label className="block text-xs font-semibold uppercase tracking-widest text-gray-400 mb-2">
                   The Situation
                 </label>
                 <Textarea
                   value={col.situation}
                   onChange={(e) => updateColumn(index, 'situation', e.target.value)}
                   placeholder="What task or situation are you preparing for?..."
-                  className="min-h-[90px] border-0 bg-gray-50 focus-visible:ring-1 resize-none text-gray-
-700 placeholder:text-gray-400 rounded-xl text-sm"
+                  className="min-h-[90px] border-0 bg-gray-50 focus-visible:ring-1 resize-none text-gray-700 placeholder:text-gray-400 rounded-xl text-sm"
                 />
               </div>
               {/* How I Will Show Up */}
               <div className="p-4 border-b border-gray-100">
-                <label className="block text-xs font-semibold uppercase tracking-widest text-gray-400 mb-
-2">
+                <label className="block text-xs font-semibold uppercase tracking-widest text-gray-400 mb-2">
                   How I Will Show Up
                 </label>
                 <Textarea
                   value={col.howIWillShowUp}
                   onChange={(e) => updateColumn(index, 'howIWillShowUp', e.target.value)}
                   placeholder="The qualities, energy, and intention you want to bring..."
-                  className="min-h-[90px] border-0 bg-gray-50 focus-visible:ring-1 resize-none text-gray-
-700 placeholder:text-gray-400 rounded-xl text-sm"
+                  className="min-h-[90px] border-0 bg-gray-50 focus-visible:ring-1 resize-none text-gray-700 placeholder:text-gray-400 rounded-xl text-sm"
                 />
               </div>
               {/* I Am In Process */}
               <div className="p-4 flex-1">
-                <label className="block text-xs font-semibold uppercase tracking-widest text-gray-400 mb-
-2">
+                <label className="block text-xs font-semibold uppercase tracking-widest text-gray-400 mb-2">
                   I Am In Process
                 </label>
                 <Textarea
                   value={col.selfEncouragement}
                   onChange={(e) => updateColumn(index, 'selfEncouragement', e.target.value)}
                   placeholder="I am a person who shows up this way. This is me growing..."
-                  className="min-h-[90px] border-0 bg-gray-50 focus-visible:ring-1 resize-none text-gray-
-700 placeholder:text-gray-400 rounded-xl text-sm"
+                  className="min-h-[90px] border-0 bg-gray-50 focus-visible:ring-1 resize-none text-gray-700 placeholder:text-gray-400 rounded-xl text-sm"
                 />
               </div>
               {/* Actions */}

@@ -65,8 +65,7 @@ export default function NewEntry() {
               value={entry.title}
               onChange={(e) => setEntry({ ...entry, title: e.target.value })}
               placeholder="Give this entry a title (optional)"
-              className="text-2xl font-light border-0 border-b border-gray-200 rounded-none px-0 py-3 foc
-us:ring-0 focus:border-purple-400 placeholder:text-gray-300"
+              className="text-2xl font-light border-0 border-b border-gray-200 rounded-none px-0 py-3 focus:ring-0 focus:border-purple-400 placeholder:text-gray-300"
             />
           </div>
           {/* Mood Selector */}
@@ -94,8 +93,7 @@ us:ring-0 focus:border-purple-400 placeholder:text-gray-300"
               value={entry.content}
               onChange={(e) => setEntry({ ...entry, content: e.target.value })}
               placeholder="Let your thoughts flow freely..."
-              className="min-h-[250px] text-lg border-gray-200 focus:border-purple-300 focus:ring-purple-
-200 rounded-2xl p-6 resize-none leading-relaxed"
+              className="min-h-[250px] text-lg border-gray-200 focus:border-purple-300 focus:ring-purple-200 rounded-2xl p-6 resize-none leading-relaxed"
             />
           </motion.div>
           {/* Gratitude */}
@@ -118,9 +116,7 @@ us:ring-0 focus:border-purple-400 placeholder:text-gray-300"
             <Button
               type="submit"
               disabled={!entry.content.trim() || createEntry.isPending}
-              className="w-full py-6 bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 h
-over:to-pink-700 text-white rounded-2xl shadow-lg shadow-purple-200 transition-all duration-300 hover:sha
-dow-xl disabled:opacity-50 disabled:cursor-not-allowed"
+              className="w-full py-6 bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 text-white rounded-2xl shadow-lg shadow-purple-200 transition-all duration-300 hover:shadow-xl disabled:opacity-50 disabled:cursor-not-allowed"
             >
               {createEntry.isPending ? (
                 <>

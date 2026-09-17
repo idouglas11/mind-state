@@ -29,8 +29,7 @@ export default function JournalEntryCard({ entry, index }) {
       transition={{ delay: index * 0.05 }}
     >
       <Link to={createPageUrl(`JournalEntry?id=${entry.id}`)}>
-        <div className={`group p-6 rounded-2xl border-2 transition-all duration-300 hover:shadow-lg hove
-r:-translate-y-1 ${moodColors[entry.mood] || 'bg-white border-gray-100'}`}>
+        <div className={`group p-6 rounded-2xl border-2 transition-all duration-300 hover:shadow-lg hover:-translate-y-1 ${moodColors[entry.mood] || 'bg-white border-gray-100'}`}>
           <div className="flex items-start justify-between mb-3">
             <div className="flex items-center gap-2 text-sm text-gray-500">
               <Calendar className="w-4 h-4" />
@@ -53,8 +52,7 @@ r:-translate-y-1 ${moodColors[entry.mood] || 'bg-white border-gray-100'}`}>
               <span>{entry.gratitude.length} gratitude{entry.gratitude.length > 1 ? 's' : ''}</span>
             </div>
           )}
-          <div className="flex items-center justify-end mt-4 text-gray-400 group-hover:text-gray-600 tran
-sition-colors">
+          <div className="flex items-center justify-end mt-4 text-gray-400 group-hover:text-gray-600 transition-colors">
             <span className="text-sm">Read more</span>
             <ChevronRight className="w-4 h-4 ml-1 group-hover:translate-x-1 transition-transform" />
           </div>

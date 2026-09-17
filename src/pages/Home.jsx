@@ -134,8 +134,7 @@ export default function Home() {
               </div>
             </div>
           </div>
-          <div className="bg-white rounded-2xl p-5 border border-gray-100 shadow-sm col-span-2 md:col-spa
-n-1">
+          <div className="bg-white rounded-2xl p-5 border border-gray-100 shadow-sm col-span-2 md:col-span-1">
             <div className="flex items-center gap-3">
               <div className="p-2 bg-pink-100 rounded-xl">
                 <Sparkles className="w-5 h-5 text-pink-600" />
@@ -163,8 +162,7 @@ n-1">
             </div>
             {/* Today's Plan Highlight */}
             {weeklyPlan[today] && (
-              <div className="bg-gradient-to-r from-blue-50 to-purple-50 rounded-xl p-4 mb-6 border borde
-r-blue-100">
+              <div className="bg-gradient-to-r from-blue-50 to-purple-50 rounded-xl p-4 mb-6 border border-blue-100">
                 <p className="text-sm font-medium text-blue-600 mb-1">Today's Plan</p>
                 <p className="text-gray-800">{weeklyPlan[today]}</p>
               </div>

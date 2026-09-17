@@ -96,8 +96,7 @@ export default function Values() {
               <Textarea
                 value={journals[index]}
                 onChange={(e) => updateJournal(index, e.target.value)}
-                placeholder="How did you live this value out recently? How will you live this value out?
-What actions will you take? How do you want to feel?"
+                placeholder="How did you live this value out recently? How will you live this value out? What actions will you take? How do you want to feel?"
                 className="min-h-[120px] resize-none border-gray-200 focus:border-rose-300"
               />
             </motion.div>
@@ -113,9 +112,7 @@ What actions will you take? How do you want to feel?"
           <Button
             onClick={handleSave}
             disabled={saveMutation.isPending}
-            className="w-full py-6 bg-gradient-to-r from-rose-600 to-amber-600 hover:from-rose-700 hover:
-to-amber-700 text-white rounded-2xl shadow-lg shadow-rose-200 transition-all duration-300 hover:shadow-xl
-hover:-translate-y-0.5"
+            className="w-full py-6 bg-gradient-to-r from-rose-600 to-amber-600 hover:from-rose-700 hover:to-amber-700 text-white rounded-2xl shadow-lg shadow-rose-200 transition-all duration-300 hover:shadow-xl hover:-translate-y-0.5"
           >
             <Save className="w-5 h-5 mr-2" />
             {saveMutation.isPending ? 'Saving...' : 'Save My Values'}

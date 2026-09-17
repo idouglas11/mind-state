@@ -190,8 +190,7 @@ export default function EveningPractice() {
           </div>
           {/* Gratitude Section */}
           <div className="mb-10">
-            <h2 className="text-lg font-semibold text-stone-700 uppercase tracking-widest mb-2 flex items
--center gap-2">
+            <h2 className="text-lg font-semibold text-stone-700 uppercase tracking-widest mb-2 flex items-center gap-2">
               <span className="w-6 h-0.5 bg-amber-400 inline-block"></span>
               Gratitude
             </h2>
@@ -204,8 +203,7 @@ export default function EveningPractice() {
                     value={responses.gratitude[i] || ''}
                     onChange={(e) => handleResponseChange('gratitude', i, e.target.value)}
                     placeholder="Write here..."
-                    className="border-0 border-b border-stone-200 rounded-none focus-visible:ring-0 focu
-s:border-amber-400 bg-transparent px-0 text-stone-700 h-auto py-1.5"
+                    className="border-0 border-b border-stone-200 rounded-none focus-visible:ring-0 focus:border-amber-400 bg-transparent px-0 text-stone-700 h-auto py-1.5"
                   />
                 </div>
               ))}
@@ -214,8 +212,7 @@ s:border-amber-400 bg-transparent px-0 text-stone-700 h-auto py-1.5"
           <div className="border-t border-stone-100 mb-10" />
           {/* Values Section */}
           <div className="mb-10">
-            <h2 className="text-lg font-semibold text-stone-700 uppercase tracking-widest mb-5 flex items
--center gap-2">
+            <h2 className="text-lg font-semibold text-stone-700 uppercase tracking-widest mb-5 flex items-center gap-2">
               <span className="w-6 h-0.5 bg-rose-400 inline-block"></span>
               Values
             </h2>
@@ -233,8 +230,7 @@ s:border-amber-400 bg-transparent px-0 text-stone-700 h-auto py-1.5"
                     value={responses.values[i] || ''}
                     onChange={(e) => handleResponseChange('values', i, e.target.value)}
                     placeholder="How did this value go for me today?"
-                    className="ml-7 border-0 border-b border-stone-100 rounded-none focus-visible:ring-0
-focus:border-rose-300 resize-none bg-stone-50/50 px-2 text-stone-600 text-sm"
+                    className="ml-7 border-0 border-b border-stone-100 rounded-none focus-visible:ring-0 focus:border-rose-300 resize-none bg-stone-50/50 px-2 text-stone-600 text-sm"
                     rows={2}
                   />
                 </div>
@@ -244,14 +240,12 @@ focus:border-rose-300 resize-none bg-stone-50/50 px-2 text-stone-600 text-sm"
           <div className="border-t border-stone-100 mb-10" />
           {/* Intention Section */}
           <div className="mb-10">
-            <h2 className="text-lg font-semibold text-stone-700 uppercase tracking-widest mb-5 flex items
--center gap-2">
+            <h2 className="text-lg font-semibold text-stone-700 uppercase tracking-widest mb-5 flex items-center gap-2">
               <span className="w-6 h-0.5 bg-purple-400 inline-block"></span>
               Intention
             </h2>
             <div className="bg-stone-50 border border-stone-100 rounded px-4 py-3 mb-5">
-              <p className="text-xs text-stone-400 uppercase tracking-widest mb-1">This morning's intenti
-on</p>
+              <p className="text-xs text-stone-400 uppercase tracking-widest mb-1">This morning's intention</p>
               <p className="text-stone-700 text-sm italic">
                 {morningIntention || <span className="text-stone-300">No intention set this morning</span
 >}
@@ -266,8 +260,7 @@ on</p>
                     value={responses.intention_achieved[i] || ''}
                     onChange={(e) => handleResponseChange('intention_achieved', i, e.target.value)}
                     placeholder="Write here..."
-                    className="border-0 border-b border-stone-200 rounded-none focus-visible:ring-0 focu
-s:border-purple-400 bg-transparent px-0 text-stone-700 h-auto py-1.5"
+                    className="border-0 border-b border-stone-200 rounded-none focus-visible:ring-0 focus:border-purple-400 bg-transparent px-0 text-stone-700 h-auto py-1.5"
                   />
                 </div>
               ))}
@@ -276,8 +269,7 @@ s:border-purple-400 bg-transparent px-0 text-stone-700 h-auto py-1.5"
           <div className="border-t border-stone-100 mb-10" />
           {/* Day Run Through */}
           <div className="mb-10">
-            <h2 className="text-lg font-semibold text-stone-700 uppercase tracking-widest mb-5 flex items
--center gap-2">
+            <h2 className="text-lg font-semibold text-stone-700 uppercase tracking-widest mb-5 flex items-center gap-2">
               <span className="w-6 h-0.5 bg-sky-400 inline-block"></span>
               Day Run Through
             </h2>
@@ -286,16 +278,14 @@ s:border-purple-400 bg-transparent px-0 text-stone-700 h-auto py-1.5"
               value={responses.day_run_through || ''}
               onChange={(e) => setResponses(prev => ({ ...prev, day_run_through: e.target.value }))}
               placeholder="Write here..."
-              className="border-0 border-b border-stone-200 rounded-none focus-visible:ring-0 focus:borde
-r-sky-400 resize-none bg-transparent px-0 text-stone-700"
+              className="border-0 border-b border-stone-200 rounded-none focus-visible:ring-0 focus:border-sky-400 resize-none bg-transparent px-0 text-stone-700"
               rows={5}
             />
           </div>
           <div className="border-t border-stone-100 mb-10" />
           {/* Things That Went Well */}
           <div className="mb-10">
-            <h2 className="text-lg font-semibold text-stone-700 uppercase tracking-widest mb-5 flex items
--center gap-2">
+            <h2 className="text-lg font-semibold text-stone-700 uppercase tracking-widest mb-5 flex items-center gap-2">
               <span className="w-6 h-0.5 bg-emerald-400 inline-block"></span>
               Things That Went Really Well
             </h2>
@@ -307,8 +297,7 @@ r-sky-400 resize-none bg-transparent px-0 text-stone-700"
                     value={responses.went_well[i] || ''}
                     onChange={(e) => handleResponseChange('went_well', i, e.target.value)}
                     placeholder="Write here..."
-                    className="border-0 border-b border-stone-200 rounded-none focus-visible:ring-0 focu
-s:border-emerald-400 bg-transparent px-0 text-stone-700 h-auto py-1.5"
+                    className="border-0 border-b border-stone-200 rounded-none focus-visible:ring-0 focus:border-emerald-400 bg-transparent px-0 text-stone-700 h-auto py-1.5"
                   />
                 </div>
               ))}
@@ -319,8 +308,7 @@ s:border-emerald-400 bg-transparent px-0 text-stone-700 h-auto py-1.5"
               <Button
                 onClick={handleSave}
                 disabled={savePractice.isPending}
-                className="w-full py-5 bg-stone-800 hover:bg-stone-900 text-white rounded-none tracking-w
-idest text-sm uppercase"
+                className="w-full py-5 bg-stone-800 hover:bg-stone-900 text-white rounded-none tracking-widest text-sm uppercase"
               >
                 {savePractice.isPending ? (
                   <Loader2 className="w-5 h-5 animate-spin" />

@@ -102,13 +102,11 @@ export default function Goals() {
           </div>
           {/* Goals Section */}
           <div>
-            <h2 className="text-lg font-semibold text-stone-700 uppercase tracking-widest mb-2 flex items
--center gap-2">
+            <h2 className="text-lg font-semibold text-stone-700 uppercase tracking-widest mb-2 flex items-center gap-2">
               <span className="w-6 h-0.5 bg-purple-400 inline-block"></span>
               My Goals
             </h2>
-            <p className="text-sm text-stone-500 mb-8">What am I working towards, and how will I show up
-today?</p>
+            <p className="text-sm text-stone-500 mb-8">What am I working towards, and how will I show up today?</p>
             <div className="space-y-8">
               {[0, 1, 2, 3, 4].map((i) => (
                 <div key={i}>
@@ -123,8 +121,7 @@ today?</p>
                       }}
                       onBlur={() => saveGoalsMutation.mutate(editableGoals)}
                       placeholder={`Goal ${i + 1}`}
-                      className="border-0 border-b border-stone-200 rounded-none focus-visible:ring-0 foc
-us:border-purple-400 bg-transparent px-0 text-stone-700 h-auto py-2 font-medium text-base"
+                      className="border-0 border-b border-stone-200 rounded-none focus-visible:ring-0 focus:border-purple-400 bg-transparent px-0 text-stone-700 h-auto py-2 font-medium text-base"
                     />
                   </div>
                   <Textarea
@@ -136,8 +133,7 @@ us:border-purple-400 bg-transparent px-0 text-stone-700 h-auto py-2 font-medium 
                     }}
                     onBlur={() => saveActionsMutation.mutate(goalActions)}
                     placeholder="How will I work towards this today..."
-                    className="ml-7 border-0 border-b border-stone-100 rounded-none focus-visible:ring-0
-focus:border-purple-300 resize-none bg-stone-50/50 px-2 text-stone-600 text-sm"
+                    className="ml-7 border-0 border-b border-stone-100 rounded-none focus-visible:ring-0 focus:border-purple-300 resize-none bg-stone-50/50 px-2 text-stone-600 text-sm"
                     rows={2}
                   />
                 </div>
@@ -147,13 +143,11 @@ focus:border-purple-300 resize-none bg-stone-50/50 px-2 text-stone-600 text-sm"
           <div className="border-t border-stone-100 my-12" />
           {/* Relationship Goals Section */}
           <div>
-            <h2 className="text-lg font-semibold text-orange-600 uppercase tracking-widest mb-2 flex item
-s-center gap-2">
+            <h2 className="text-lg font-semibold text-orange-600 uppercase tracking-widest mb-2 flex items-center gap-2">
               <span className="w-6 h-0.5 bg-orange-400 inline-block"></span>
               Relationship Goals
             </h2>
-            <p className="text-sm text-orange-400 mb-8">How do I want to show up for the people in my lif
-e?</p>
+            <p className="text-sm text-orange-400 mb-8">How do I want to show up for the people in my life?</p>
             <div className="space-y-6">
               {[0, 1, 2, 3, 4].map((i) => (
                 <div key={i} className="flex items-center gap-3">
@@ -167,8 +161,7 @@ e?</p>
                     }}
                     onBlur={() => saveRelationshipGoalsMutation.mutate(relationshipGoals)}
                     placeholder={`Relationship goal ${i + 1}`}
-                    className="border-0 border-b border-orange-100 rounded-none focus-visible:ring-0 focu
-s:border-orange-400 bg-transparent px-0 text-stone-700 h-auto py-2 font-medium text-base"
+                    className="border-0 border-b border-orange-100 rounded-none focus-visible:ring-0 focus:border-orange-400 bg-transparent px-0 text-stone-700 h-auto py-2 font-medium text-base"
                   />
                 </div>
               ))}

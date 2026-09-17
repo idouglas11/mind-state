@@ -48,21 +48,16 @@ export default function InnerVoice() {
     <div className="min-h-screen bg-gradient-to-b from-violet-50/40 via-white to-rose-50/20">
       <div className="max-w-2xl mx-auto px-4 py-8 md:py-12">
         {/* Header */}
-        <motion.div initial={{ opacity: 0, y: -20 }} animate={{ opacity: 1, y: 0 }} className="text-cente
-r mb-10">
-          <div className="inline-flex items-center justify-center w-14 h-14 bg-violet-100 rounded-2xl mb-
-4">
+        <motion.div initial={{ opacity: 0, y: -20 }} animate={{ opacity: 1, y: 0 }} className="text-center mb-10">
+          <div className="inline-flex items-center justify-center w-14 h-14 bg-violet-100 rounded-2xl mb-4">
             <MessageCircle className="w-7 h-7 text-violet-500" />
           </div>
           <h1 className="text-3xl md:text-4xl font-light text-gray-800 mb-2">Inner Voice</h1>
-          <p className="text-gray-500 text-sm max-w-sm mx-auto">This is the way I speak to myself. I prac
-tise it here so that it transfers into how I speak in my head to myself throughout the day.</p>
+          <p className="text-gray-500 text-sm max-w-sm mx-auto">This is the way I speak to myself. I practise it here so that it transfers into how I speak in my head to myself throughout the day.</p>
         </motion.div>
         {/* Prompts */}
-        <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.1 }} classNa
-me="mb-6">
-          <p className="text-xs font-semibold uppercase tracking-widest text-gray-400 mb-3">Prompts to ge
-t started</p>
+        <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.1 }} className="mb-6">
+          <p className="text-xs font-semibold uppercase tracking-widest text-gray-400 mb-3">Prompts to get started</p>
           <div className="flex flex-wrap gap-2">
             {PROMPTS.map((prompt, i) => (
               <button
@@ -80,14 +75,12 @@ t started</p>
           </div>
         </motion.div>
         {/* Input */}
-        <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.15 }} classN
-ame="bg-white rounded-2xl border border-gray-100 shadow-sm p-4 mb-8">
+        <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.15 }} className="bg-white rounded-2xl border border-gray-100 shadow-sm p-4 mb-8">
           <Textarea
             placeholder="Write to yourself here..."
             value={input}
             onChange={(e) => setInput(e.target.value)}
-            className="rounded-xl border-gray-200 resize-none min-h-[100px] text-gray-700 text-sm focus-v
-isible:ring-violet-300"
+            className="rounded-xl border-gray-200 resize-none min-h-[100px] text-gray-700 text-sm focus-visible:ring-violet-300"
             onKeyDown={(e) => {
               if (e.key === 'Enter' && (e.metaKey || e.ctrlKey)) handleSubmit();
             }}
@@ -106,8 +99,7 @@ isible:ring-violet-300"
         {/* Saved Entries */}
         {entries.length > 0 && (
           <div>
-            <p className="text-xs font-semibold uppercase tracking-widest text-gray-400 mb-3">Your inner
-voice</p>
+            <p className="text-xs font-semibold uppercase tracking-widest text-gray-400 mb-3">Your inner voice</p>
             <div className="space-y-3">
               <AnimatePresence>
                 {entries.map((entry) => (
@@ -116,14 +108,12 @@ voice</p>
                     initial={{ opacity: 0, y: 10 }}
                     animate={{ opacity: 1, y: 0 }}
                     exit={{ opacity: 0, x: -10 }}
-                    className="group bg-white rounded-2xl border border-gray-100 shadow-sm px-5 py-4 flex
-items-start justify-between gap-3"
+                    className="group bg-white rounded-2xl border border-gray-100 shadow-sm px-5 py-4 flex items-start justify-between gap-3"
                   >
                     <p className="text-gray-700 text-sm leading-relaxed">{entry.content}</p>
                     <button
                       onClick={() => deleteMutation.mutate(entry.id)}
-                      className="opacity-0 group-hover:opacity-100 transition-opacity text-gray-300 hove
-r:text-red-400 mt-0.5 shrink-0"
+                      className="opacity-0 group-hover:opacity-100 transition-opacity text-gray-300 hover:text-red-400 mt-0.5 shrink-0"
                     >
                       <Trash2 className="w-4 h-4" />
                     </button>

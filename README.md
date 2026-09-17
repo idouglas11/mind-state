@@ -36,14 +36,21 @@ create table app_records (
   id uuid primary key default gen_random_uuid(),
   entity text not null,           -- e.g. "Affirmation", "JournalEntry", "MorningPractice"...
   data jsonb not null default '{}',
+  owner uuid not null default auth.uid(),
   created_date timestamptz not null default now(),
   updated_date timestamptz not null default now()
 );
 ```
 
-Every entity the app uses (`Affirmation`, `JournalEntry`, `MorningPractice`, `MorningPracticeTemplate`, `EveningPractice`, `EveningPracticeTemplate`, `Values`, `Goals`-related fields on `Values`, `DPJEntry`, `WorksheetResponse`, `DailyRecord`, `ThoughtReframe`, `PrimingEntry`, `SelfConcept`, `WeeklyPlan`, `Archive`) shares this one table, distinguished by the `entity` column — no per-entity migrations needed as the app grows. RLS is on, with a single policy allowing any authenticated user full access (fine for a single-user app).
+Every entity the app uses (`Affirmation`, `JournalEntry`, `MorningPractice`, `MorningPracticeTemplate`, `EveningPractice`, `EveningPracticeTemplate`, `Values`, `Goals`-related fields on `Values`, `DPJEntry`, `WorksheetResponse`, `DailyRecord`, `ThoughtReframe`, `PrimingEntry`, `SelfConcept`, `WeeklyPlan`, `Archive`) shares this one table, distinguished by the `entity` column — no per-entity migrations needed as the app grows.
 
-**Auth:** simple Supabase email/password login (`src/lib/AuthContext.jsx` + a login screen), one account: `anna@leat.nz`. No public sign-up — accounts are only created from the Supabase dashboard (Authentication → Users → Add user).
+**Auth:** simple Supabase email/password login (`src/lib/AuthContext.jsx` + a login screen + a change-password option in the account menu), one account: `anna@leat.nz`.
+
+**Security, as actually configured (not just intended):**
+- RLS policy scopes every row to `owner = auth.uid()` — even if a second account existed, it could never see this data. `owner` defaults to the inserting user automatically, so the app code never has to set it.
+- Public sign-up is **disabled** at the Supabase project level (Authentication → Sign In/Providers). Without this, anyone with the site's URL could call the public signup API directly (bypassing the login form entirely) and create their own authenticated account — this was tested and confirmed possible before the setting was turned off, so don't re-enable it without also re-checking the RLS policy holds up.
+- The anon/publishable key in `.env` and baked into the deployed JS bundle is meant to be public — Supabase's model relies on RLS + auth for protection, not key secrecy.
+- No AI/LLM calls anywhere in the app, so prompt injection isn't an applicable risk here.
 
 **Config:** connection details live in `.env` (gitignored) as `VITE_SUPABASE_URL` and `VITE_SUPABASE_ANON_KEY` — both safe to expose client-side (RLS is what actually protects the data, not key secrecy). If you ever need to recreate `.env`:
 
